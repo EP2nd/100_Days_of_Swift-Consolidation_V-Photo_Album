@@ -14,6 +14,7 @@
 		B865BFF728ABCE350035E02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B865BFF628ABCE350035E02D /* Assets.xcassets */; };
 		B865BFFA28ABCE350035E02D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B865BFF828ABCE350035E02D /* LaunchScreen.storyboard */; };
 		B865C00228ABD21F0035E02D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B865C00128ABD21F0035E02D /* DetailViewController.swift */; };
+		B865C00428AD500F0035E02D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B865C00328AD500F0035E02D /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B865BFF928ABCE350035E02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B865BFFB28ABCE350035E02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B865C00128ABD21F0035E02D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B865C00328AD500F0035E02D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				B865BFEF28ABCE330035E02D /* SceneDelegate.swift */,
 				B865BFF128ABCE330035E02D /* ViewController.swift */,
 				B865C00128ABD21F0035E02D /* DetailViewController.swift */,
+				B865C00328AD500F0035E02D /* Photo.swift */,
 				B865BFF328ABCE330035E02D /* Main.storyboard */,
 				B865BFF828ABCE350035E02D /* LaunchScreen.storyboard */,
 				B865BFF628ABCE350035E02D /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 				B865BFEE28ABCE330035E02D /* AppDelegate.swift in Sources */,
 				B865BFF028ABCE330035E02D /* SceneDelegate.swift in Sources */,
 				B865C00228ABD21F0035E02D /* DetailViewController.swift in Sources */,
+				B865C00428AD500F0035E02D /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
