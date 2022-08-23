@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
             photoView.image = UIImage(named: photoToLoad)
             print(photoToLoad)
         } else {
-            fatalError("Could not load the photo.")
+            print("Could not load the photo.")
         }
     }
     

@@ -39,21 +39,19 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Photo", for: indexPath)
         let photo = photos[indexPath.row]
+        
         cell.textLabel?.text = photo.title
         cell.detailTextLabel?.text = photo.caption
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
-            detailViewController.selectedPhoto = photos[indexPath.item]
+            detailViewController.selectedPhoto = photos[indexPath.row]
+            
             navigationController?.pushViewController(detailViewController, animated: true)
         }
-        tableView.reloadData()
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -62,6 +60,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
             save()
         }
         tableView.reloadData()
+        save()
     }
     
     @objc func takeAPhoto() {
@@ -78,7 +77,6 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         guard let image = info[.editedImage] as? UIImage else { return }
         
         let imageName = UUID().uuidString
-        
         let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
         
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
@@ -92,27 +90,31 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         setTitleAndCaptionAC.addTextField()
         setTitleAndCaptionAC.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         setTitleAndCaptionAC.addAction(UIAlertAction(title: "Save", style: .default) { [weak self, weak setTitleAndCaptionAC] _ in
-            let title = setTitleAndCaptionAC?.textFields?[0].text ?? "Unknown"
-            let caption = setTitleAndCaptionAC?.textFields?[1].text ?? "Unknown"
-            self?.saveAPhoto(path: imagePath.path, title: title, caption: caption)
+            let newTitle = setTitleAndCaptionAC?.textFields?[0].text ?? "Unknown"
+            let newCaption = setTitleAndCaptionAC?.textFields?[1].text ?? "Unknown"
+            
+            self?.saveAPhoto(path: imagePath.path, title: newTitle, caption: newCaption)
         })
         present(setTitleAndCaptionAC, animated: true)
     }
     
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
         return paths[0]
     }
     
     func saveAPhoto(path imagePath: String, title: String, caption: String) {
         let photo = Photo(photo: imagePath, title: title, caption: caption)
+        
         photos.append(photo)
-        save()
         tableView.reloadData()
+        save()
     }
     
     func save() {
         let jsonEncoder = JSONEncoder()
+        
         if let savedData = try? jsonEncoder.encode(photos) {
             let defaults = UserDefaults.standard
             defaults.set(savedData, forKey: "photos")

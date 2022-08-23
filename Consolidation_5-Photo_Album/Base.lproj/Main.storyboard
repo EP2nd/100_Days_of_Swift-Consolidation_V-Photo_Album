@@ -61,17 +61,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AK0-Ku-1H6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AK0-Ku-1H6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4pK-ba-cKo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="leading" secondItem="4pK-ba-cKo" secondAttribute="leading" id="JHA-GL-MPj"/>
-                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="centerX" secondItem="CQo-si-0mC" secondAttribute="centerX" id="agq-Zr-1SY"/>
-                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="top" secondItem="CQo-si-0mC" secondAttribute="topMargin" constant="-44" id="dY6-cx-QbN"/>
-                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="centerY" secondItem="CQo-si-0mC" secondAttribute="centerY" id="lN7-e0-3bH"/>
+                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="centerY" secondItem="CQo-si-0mC" secondAttribute="centerY" id="7yI-J0-RIv"/>
+                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="top" secondItem="CQo-si-0mC" secondAttribute="topMargin" constant="-44" id="eEy-rD-rEe"/>
+                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="leading" secondItem="4pK-ba-cKo" secondAttribute="leading" id="ePF-k8-vO8"/>
+                            <constraint firstItem="AK0-Ku-1H6" firstAttribute="centerX" secondItem="CQo-si-0mC" secondAttribute="centerX" id="zYz-Sj-CDW"/>
                         </constraints>
                     </view>
                     <connections>
@@ -80,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ts7-wV-67i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="59"/>
+            <point key="canvasLocation" x="1669.5652173913045" y="58.928571428571423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4CK-oI-0pP">
