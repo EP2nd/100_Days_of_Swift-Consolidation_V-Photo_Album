@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
     @IBOutlet var photoView: UIImageView!
     
     var selectedPhoto: Photo?
@@ -17,6 +18,7 @@ class DetailViewController: UIViewController {
 
         if let photoToLoad = selectedPhoto?.photo {
             photoView.image = UIImage(named: photoToLoad)
+            
             print(photoToLoad)
         } else {
             print("Could not load the photo.")
@@ -25,11 +27,13 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         navigationController?.hidesBarsOnTap = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         navigationController?.hidesBarsOnTap = false
     }
 }

@@ -15,6 +15,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         title = "Photo Album"
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(takeAPhoto))
@@ -55,15 +56,19 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == UITableViewCell.EditingStyle.delete {
             photos.remove(at: indexPath.row)
             save()
         }
+        
         tableView.reloadData()
+        
         save()
     }
     
     @objc func takeAPhoto() {
+        
         let picker = UIImagePickerController()
         
         picker.sourceType = .camera
@@ -74,6 +79,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         guard let image = info[.editedImage] as? UIImage else { return }
         
         let imageName = UUID().uuidString
@@ -90,6 +96,7 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         setTitleAndCaptionAC.addTextField()
         setTitleAndCaptionAC.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         setTitleAndCaptionAC.addAction(UIAlertAction(title: "Save", style: .default) { [weak self, weak setTitleAndCaptionAC] _ in
+            
             let newTitle = setTitleAndCaptionAC?.textFields?[0].text ?? "Unknown"
             let newCaption = setTitleAndCaptionAC?.textFields?[1].text ?? "Unknown"
             
@@ -108,7 +115,9 @@ class ViewController: UITableViewController, UIImagePickerControllerDelegate, UI
         let photo = Photo(photo: imagePath, title: title, caption: caption)
         
         photos.append(photo)
+        
         tableView.reloadData()
+        
         save()
     }
     
